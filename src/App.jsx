@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
-import NeuroLearnAcademy from './NeuroLearnAcademy.jsx';
-import MathAnswers from './pages/nl_ml/home.jsx';
+import NeuroLearnAcademy from './pages/DataMining/NeuroLearnAcademy.jsx';
+import MathAnswers from './pages/NeuralNetworks/Home.jsx';
 
 function App() {
   const [activeModule, setActiveModule] = useState(null);

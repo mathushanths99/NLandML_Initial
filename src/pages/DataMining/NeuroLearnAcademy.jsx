@@ -1,13 +1,13 @@
 import { useState } from "react";
 import "./NeuroLearnAcademy.css";
-import HomePage from "./pages/HomePage";
-import BasicsPage from "./pages/BasicsPage";
-import HowItPage from "./pages/HowItPage";
-import TrainingPage from "./pages/TrainingPage";
-import TypesPage from "./pages/TypesPage";
-import AppsPage from "./pages/AppsPage";
-import ResourcesPage from "./pages/ResourcesPage";
-import QuizPage from "./pages/QuizPage";
+import HomePage from "./HomePage";
+import BasicsPage from "./BasicsPage";
+import HowItPage from "./HowItPage";
+import TrainingPage from "./TrainingPage";
+import TypesPage from "./TypesPage";
+import AppsPage from "./AppsPage";
+import ResourcesPage from "./ResourcesPage";
+import QuizPage from "./QuizPage";
 
 export default function NeuroLearnAcademy() {
   const [page, setPage] = useState("home");

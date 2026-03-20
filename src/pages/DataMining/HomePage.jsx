@@ -1,4 +1,4 @@
-import NetworkSVG from '../components/NetworkSVG';
+import NetworkSVG from '../../components/NetworkSVG';
 
 export default function HomePage({ go }) {
   const modules = [

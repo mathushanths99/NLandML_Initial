@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+
+.r{
+  --bg:#f6f3ec;
+  --bg2:#ede8db;
+  --bg3:#e4dece;
+  --surf:#faf8f3;
+  --bdr:#ddd7c8;
+  --bdr2:#ccc6b4;
+  --txt:#38332e;
+  --muted:#736e65;
+  --faint:#a8a195;
+
+  --sage:#4d7060;    --sage-l:#e8f2eb;  --sage-b:#b2d0ba;
+  --amber:#7a5f22;   --amber-l:#fdf0d6; --amber-b:#ddc070;
+  --rose:#7e3f50;    --rose-l:#fdeaf0;  --rose-b:#d9a8b5;
+  --blue:#335580;    --blue-l:#e8f0fa;  --blue-b:#a8c0dc;
+  --teal:#2a6570;    --teal-l:#e2f2f4;  --teal-b:#98ccd4;
+  --plum:#52426e;    --plum-l:#efecf8;  --plum-b:#beb0d8;
+  --green:#346045;   --green-l:#e6f3eb; --green-b:#9ec9ac;
+
+  background:var(--bg);
+  color:var(--txt);
+  font-family:'Source Sans 3',sans-serif;
+  font-size:16px;
+  line-height:1.8;
+  min-height:100vh;
+}
+
+/* ── NAV ── */
+.nav{
+  position:sticky;top:0;z-index:200;
+  background:rgba(246,243,236,0.94);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--bdr);
+}
+.nav-inner{
+  max-width:980px;margin:0 auto;
+  display:flex;align-items:center;gap:0.75rem;
+  height:54px;padding:0 1.25rem;
+}
+.nav-logo{
+  font-family:'Lora',serif;font-size:0.95rem;font-weight:600;
+  color:var(--sage);white-space:nowrap;margin-right:0.5rem;
+}
+.nav-tabs{display:flex;gap:3px;overflow-x:auto;flex:1}
+.nav-tabs::-webkit-scrollbar{height:0}
+.nav-tab{
+  background:none;border:none;cursor:pointer;
+  font-family:'Source Sans 3',sans-serif;
+  font-size:0.78rem;font-weight:500;color:var(--muted);
+  padding:0.32rem 0.8rem;border-radius:18px;
+  transition:all 0.15s;white-space:nowrap;
+}
+.nav-tab:hover{background:var(--bg2);color:var(--txt)}
+.nav-tab.on{background:var(--sage-l);color:var(--sage);border:1px solid var(--sage-b)}
+.ham{
+  display:none;flex-direction:column;gap:4px;
+  background:none;border:none;cursor:pointer;padding:5px;flex-shrink:0;
+}
+.ham span{display:block;width:20px;height:2px;background:var(--muted);border-radius:2px}
+@media(max-width:640px){
+  .nav-tabs{
+    display:none;position:absolute;top:54px;left:0;right:0;
+    background:rgba(246,243,236,0.97);
+    border-bottom:1px solid var(--bdr);
+    padding:0.6rem;flex-direction:column;gap:2px;
+  }
+  .nav-tabs.open{display:flex}
+  .nav-tab{text-align:left;border-radius:8px;padding:0.6rem 1rem}
+  .ham{display:flex}
+}
+
+/* ── PAGE WRAPPER ── */
+.pg{max-width:900px;margin:0 auto;padding:2rem 1.25rem 6rem;animation:fi 0.3s ease}
+@keyframes fi{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── HERO ── */
+.hero{
+  background:linear-gradient(135deg,var(--sage-l),var(--blue-l));
+  border:1px solid var(--sage-b);border-radius:16px;
+  padding:2.25rem 1.75rem;margin-bottom:2.25rem;text-align:center;
+}
+.hero-tag{
+  display:inline-block;background:var(--sage);color:#fff;
+  font-size:0.68rem;font-family:'JetBrains Mono',monospace;
+  letter-spacing:0.1em;padding:0.22rem 0.8rem;border-radius:18px;
+  margin-bottom:0.9rem;text-transform:uppercase;
+}
+.hero h1{
+  font-family:'Lora',serif;font-size:clamp(1.5rem,4vw,2.2rem);
+  font-weight:600;line-height:1.2;margin-bottom:0.55rem;
+}
+.hero p{color:var(--muted);font-size:0.92rem;max-width:480px;margin:0 auto}
+.pills{display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;margin-top:1.25rem}
+.pill{
+  background:var(--surf);border:1px solid var(--bdr);
+  border-radius:18px;padding:0.28rem 0.85rem;
+  font-size:0.77rem;color:var(--muted);
+}
+
+/* ── SECTION HEADER ── */
+.sh{
+  display:flex;align-items:center;gap:0.9rem;
+  margin-bottom:1.6rem;padding-bottom:0.7rem;
+  border-bottom:2px solid var(--bg3);
+}
+.sh-num{
+  width:40px;height:40px;flex-shrink:0;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Lora',serif;font-size:1.05rem;font-weight:600;
+  border:2px solid currentColor;
+}
+.sh h2{font-family:'Lora',serif;font-size:1.4rem;font-weight:600}
+.sh p{font-size:0.83rem;color:var(--muted);margin-top:0.1rem}
+
+/* ── QUESTION ACCORDION ── */
+.qa{
+  background:var(--surf);border:1px solid var(--bdr);
+  border-radius:14px;overflow:hidden;margin-bottom:1.1rem;
+  transition:box-shadow 0.2s;
+}
+.qa:hover{box-shadow:0 3px 14px rgba(0,0,0,0.07)}
+.qa-hd{
+  display:flex;align-items:flex-start;gap:0.9rem;
+  padding:1rem 1.3rem;cursor:pointer;user-select:none;
+}
+.qa-hd:hover{background:var(--bg2)}
+.qa-badge{
+  flex-shrink:0;font-family:'JetBrains Mono',monospace;
+  font-size:0.7rem;font-weight:600;
+  padding:0.22rem 0.6rem;border-radius:5px;margin-top:0.15rem;
+}
+.qa-right{flex:1;display:flex;flex-direction:column;gap:0.25rem}
+.qa-title{font-size:0.94rem;font-weight:600;color:var(--txt);line-height:1.45}
+.qa-sub{font-size:0.8rem;color:var(--muted)}
+.qa-meta{display:flex;align-items:center;gap:0.75rem;flex-shrink:0;margin-top:0.1rem}
+.qa-pts{font-size:0.72rem;color:var(--faint);font-family:'JetBrains Mono',monospace}
+.qa-arrow{color:var(--faint);font-size:0.7rem;transition:transform 0.22s}
+.qa-arrow.open{transform:rotate(180deg)}
+.qa-body{
+  padding:0.25rem 1.3rem 1.3rem;
+  border-top:1px solid var(--bdr);
+}
+
+/* ── QUESTION TEXT BOX ── */
+.q-text-box{
+  background:var(--bg2);border:1px solid var(--bdr2);
+  border-left:4px solid var(--bdr2);
+  border-radius:0 10px 10px 0;
+  padding:0.85rem 1rem;margin:1rem 0;
+  font-size:0.88rem;color:var(--txt);line-height:1.7;
+}
+
+/* ── CONCEPT BOX ── */
+.cbox{
+  background:var(--amber-l);border:1px solid var(--amber-b);
+  border-radius:10px;padding:0.9rem 1rem;margin:0.9rem 0;
+}
+.cbox-lbl{
+  font-size:0.65rem;font-family:'JetBrains Mono',monospace;
+  letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--amber);margin-bottom:0.35rem;
+}
+.cbox p,.cbox li{font-size:0.87rem;color:var(--txt);line-height:1.65}
+.cbox ul{padding-left:1.1rem;margin-top:0.25rem}
+.cbox li{margin-bottom:0.2rem}
+
+/* ── STEP ── */
+.steps{margin:0.85rem 0;display:flex;flex-direction:column;gap:0.55rem}
+.step{display:flex;gap:0.75rem;align-items:flex-start}
+.step-n{
+  flex-shrink:0;width:22px;height:22px;background:var(--sage);
+  color:#fff;border-radius:50%;display:flex;align-items:center;
+  justify-content:center;font-size:0.68rem;font-weight:600;margin-top:0.2rem;
+}
+.step-b{font-size:0.88rem;color:var(--txt);line-height:1.65;flex:1}
+.step-b strong{color:var(--sage)}
+.step-b em{color:var(--muted);font-style:normal;font-size:0.83rem}
+
+/* ── FORMULA BOX ── */
+.fbox{
+  background:var(--blue-l);border:1px solid var(--blue-b);
+  border-radius:9px;padding:0.9rem 1.1rem;margin:0.6rem 0;
+  font-family:'JetBrains Mono',monospace;font-size:0.82rem;
+  color:var(--blue);line-height:2;overflow-x:auto;white-space:pre;
+}
+
+/* ── ANSWER BOX ── */
+.abox{
+  background:var(--green-l);border:1px solid var(--green-b);
+  border-left:4px solid var(--green);
+  border-radius:0 10px 10px 0;padding:0.9rem 1rem;margin:0.9rem 0;
+}
+.abox-lbl{
+  font-size:0.63rem;font-family:'JetBrains Mono',monospace;
+  letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--green);margin-bottom:0.4rem;font-weight:600;
+}
+.abox p,.abox div{font-size:0.9rem;color:var(--txt);line-height:1.7}
+.abox strong{color:var(--green);font-size:0.97rem}
+.abox .note{font-size:0.8rem;color:var(--muted);margin-top:0.35rem}
+
+/* ── NOTE BOX ── */
+.note-box{
+  background:var(--plum-l);border:1px solid var(--plum-b);
+  border-radius:8px;padding:0.75rem 0.9rem;margin:0.75rem 0;
+  font-size:0.84rem;color:var(--plum);line-height:1.6;
+}
+
+/* ── INLINE CODE ── */
+.ic{
+  background:var(--bg3);border-radius:4px;
+  font-family:'JetBrains Mono',monospace;font-size:0.8em;
+  padding:0.1em 0.4em;color:var(--blue);
+}
+
+/* ── MATRIX ── */
+.mx-wrap{display:inline-flex;align-items:center;vertical-align:middle}
+.mx-brk{font-size:2.6rem;line-height:1;color:var(--blue-b);font-weight:200;font-family:'Lora',serif}
+.mx-inner{display:flex;flex-direction:column;padding:0 0.25rem}
+.mx-row{display:flex;gap:1rem;justify-content:flex-end}
+.mx-row span{
+  min-width:3rem;text-align:right;
+  font-family:'JetBrains Mono',monospace;font-size:0.8rem;color:var(--blue);
+  line-height:1.9;
+}
+
+/* ── CHECK / CROSS ── */
+.ck{color:#2e6e44;font-weight:700}
+.cr{color:#8a3535;font-weight:700}
+
+/* ── DIVIDER ── */
+.div{border:none;border-top:1px dashed var(--bdr2);margin:1rem 0}
+
+/* ── RULE GRID ── */
+.rule-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+  gap:0.65rem;margin:0.85rem 0;
+}
+.rule-card{
+  background:var(--bg2);border:1px solid var(--bdr);
+  border-radius:8px;padding:0.75rem 0.85rem;
+}
+.rule-card h4{font-size:0.8rem;font-weight:600;color:var(--txt);margin-bottom:0.2rem}
+.rule-card p{font-size:0.78rem;color:var(--muted);font-family:'JetBrains Mono',monospace}
+
+/* ── SUMMARY TABLE ── */
+.stbl{width:100%;border-collapse:collapse;font-size:0.84rem;margin:1rem 0}
+.stbl th{
+  background:var(--sage-l);color:var(--sage);
+  padding:0.55rem 0.85rem;border:1px solid var(--sage-b);
+  text-align:left;font-weight:600;
+}
+.stbl td{padding:0.5rem 0.85rem;border:1px solid var(--bdr);color:var(--txt);vertical-align:top}
+.stbl tr:nth-child(even) td{background:var(--bg2)}
+
+/* ── FOOTER ── */
+.ft{
+  text-align:center;padding:1.75rem 1rem;
+  border-top:1px solid var(--bdr);
+  color:var(--faint);font-size:0.8rem;margin-top:2.5rem;
+}

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { QUESTIONS } from "../data/questions";
+import { QUESTIONS } from "../../data/questions";
 
 export default function QuizPage({ go }) {
   const [stage, setStage] = useState("gate"); // gate | quiz | results
