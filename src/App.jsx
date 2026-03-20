@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import NeuroLearnAcademy from './pages/DataMining/NeuroLearnAcademy.jsx';
 import MathAnswers from './pages/NeuralNetworks/Home.jsx';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 function App() {
   const [activeModule, setActiveModule] = useState(null);
@@ -13,6 +14,7 @@ function App() {
           &larr; Back to Home
         </button>
         <MathAnswers />
+        <SpeedInsights />
       </div>
     );
   }
@@ -24,6 +26,7 @@ function App() {
           &larr; Back to Home
         </button>
         <NeuroLearnAcademy />
+        <SpeedInsights />
       </div>
     );
   }
@@ -41,6 +44,7 @@ function App() {
             <p>This module is currently under construction. Please check back later!</p>
           </div>
         </div>
+        <SpeedInsights />
       </div>
     );
   }
@@ -76,6 +80,7 @@ function App() {
           </div>
         </div>
       </div>
+      <SpeedInsights />
     </div>
   );
 }
